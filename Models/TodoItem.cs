@@ -1,9 +1,48 @@
+using Newtonsoft.Json.Linq;
+
 namespace MyWebApi.Models
 {
     public class TodoItem
     {
-        public string Key { get; set; }
-        public string Name { get; set; }
-        public bool IsComplete { get; set; }
+        JObject json = new JObject();
+
+        public string Key
+        {
+            get
+            {
+                return json.Value<string>("key");
+            }
+
+            set
+            {
+                json["key"] = value;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return json.Value<string>("name");
+            }
+
+            set
+            {
+                json["name"] = value;
+            }
+        }
+
+        public bool IsComplete
+        {
+            get
+            {
+                return json.Value<bool>("isComplete");
+            }
+
+            set
+            {
+                json["isComplete"] = value;
+            }
+        }
     }
 }
