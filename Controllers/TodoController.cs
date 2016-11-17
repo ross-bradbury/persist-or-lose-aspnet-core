@@ -43,7 +43,7 @@ namespace MyWebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(string id, [FromBody] TodoItem item)
+        public IActionResult Update(string id, [FromBody] [ModelBinder(BinderType = typeof(TodoModelBinder))] TodoItem item)
         {
             if (item == null || item.Key != id)
             {

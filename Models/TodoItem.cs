@@ -4,7 +4,17 @@ namespace MyWebApi.Models
 {
     public class TodoItem
     {
-        JObject json = new JObject();
+        readonly JObject json;
+
+        public TodoItem()
+        {
+            json = new JObject();
+        }
+
+        public TodoItem(JObject json)
+        {
+            this.json = json;
+        }
 
         public string Key
         {
