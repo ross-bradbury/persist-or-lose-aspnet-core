@@ -1,3 +1,5 @@
+using System.IO;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace MyWebApi.Models
@@ -14,6 +16,11 @@ namespace MyWebApi.Models
         public TodoItem(JObject json)
         {
             this.json = json;
+        }
+
+        public JObject AsJObject()
+        {
+            return json;
         }
 
         public string Key
